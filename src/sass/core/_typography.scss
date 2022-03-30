@@ -1,0 +1,13 @@
+@use '../abstract/' as a;
+* {
+    font-family: 'Inter', sans-serif;
+    color: white;
+}
+
+h1 {
+    font-family: 'Titan One', sans-serif;
+    font-size: 60px;
+    color: a.$lyellow;
+    display: flex;
+    justify-content: center;
+}

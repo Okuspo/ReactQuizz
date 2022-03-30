@@ -1,0 +1,23 @@
+.pot {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+}
+
+.pot-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pot-amount {
+  font-size: 20px;
+  font-family: 'Titan One', sans-serif;
+}
+
+.coin-icon {
+  height: 20px;
+  width: 20px;
+}

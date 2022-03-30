@@ -1,0 +1,51 @@
+@use '../abstract/' as a;
+
+.home {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  flex-wrap: wrap;
+}
+
+.go-button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.go-button {
+  background-color: a.$lyellow;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    font-family: 'Titan One', sans-serif;
+    font-size: 80px;
+    transform: rotate(-15deg);
+    color: white;
+  }
+}
+
+.prizewheel-container {
+  width: 100%;
+  color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.prizewheel-button {
+  background-color: a.$lmarine;
+  padding: 10px;
+  border-radius: 10px;
+   span {
+    font-family: 'Titan One', sans-serif;
+   }
+}
