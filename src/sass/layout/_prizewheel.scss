@@ -1,0 +1,49 @@
+@use '../abstract/' as a;
+.prize-wheel {
+  @include a.flex-center;
+  flex-direction: column;
+}
+
+.wheel-container {
+  margin-top: 100px;
+  position: relative;
+}
+
+.pin {
+  position: absolute;
+  top:0;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.btn-wheel {
+  @include a.flex-center;
+  border: none;
+  font-size: 30px;
+  background-color: a.$dyellow;
+  font-family: 'Titan One', sans-serif;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+.spinning {
+  animation: spin 2s ease-in-out normal forwards;
+}
+
+
+@keyframes spin {
+  0% {
+    
+  }
+  50% {
+    transform: rotate(-2430deg)
+  }
+  90% {
+    transform: rotate(-2430deg)
+  }
+  100% {
+    transform: rotate(0deg)
+  }
+}
