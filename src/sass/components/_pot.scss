@@ -1,20 +1,25 @@
+@use '../abstract/' as a;
 .pot {
-  display: flex;
+  @include a.flex-center;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  position: absolute;
+  top: 50px;
+  right: 50px;
   background-color: red;
+  width: 100px;
+  height: 80px;
+  border-radius: 15px;
+  background-color: a.$lmarine;
 }
 
 .pot-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include a.flex-center(space-between);
 }
 
 .pot-amount {
   font-size: 20px;
   font-family: 'Titan One', sans-serif;
+  margin-right: 5px;
 }
 
 .coin-icon {

@@ -1,0 +1,39 @@
+@use '../abstract/' as a;
+.game-over {
+  @include a.flex-center;
+  flex-direction: column;
+}
+.game-over-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 100px;
+  height: 500px;
+  flex-direction: column;
+  font-size: 30px;
+  span {
+    font-family: 'Titan One', sans-serif;
+    color: a.$dyellow;
+  }
+}
+
+.go-pot {
+  @include a.flex-center;
+  width: 200px;
+}
+
+#go-coin-amount {
+  font-family: 'Titan One', sans-serif;
+  margin-right: 10px;
+  font-size: 60px;
+  color: white;
+}
+
+.btn-goto-prize {
+  background-color: a.$dyellow;
+  border: none;
+  padding: 10px 20px;
+  font-family: 'Titan One', sans-serif;
+  border-radius: 15px;
+  font-size: 30px;
+}

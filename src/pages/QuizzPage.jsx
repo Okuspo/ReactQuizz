@@ -1,49 +1,30 @@
 import React from 'react'
-import QuizzHeader from '../layout/QuizzHeader'
+import { useParams } from 'react-router-dom'
+import Pot from '../components/Pot'
+import BlindTest from '../components/QuestionTypes/BlindTest'
+import TrueFalse from '../components/QuestionTypes/TrueFalse'
+import Text from '../components/QuestionTypes/Text'
+import PropTypes from 'prop-types'
+import HomeButton from '../components/HomeButton'
+import { questions } from '../database/questions'
 
-const quizzQuestion = {
-  id: 1,
-  h1: 'VRAI OU FAUX ?',
-  question: 'Un pigeon',
-  type: 'trueOrFalse',
-  answer: true,
-  file: ''
-}
+const QuizzPage = ({ coins, setCoins }) => {
+  QuizzPage.propTypes = {
+    coins: PropTypes.number,
+    setCoins: PropTypes.func
+  }
+  const { id } = useParams()
 
-const blindTestQuestion = {
-  id: 2,
-  h1: 'TROUVE LE TITRE',
-  question: '',
-  type: 'blindtest',
-  answer: 'thunder',
-  file: ''
-}
-
-const textQuestion = {
-  id: 2,
-  h1: 'TROUVE LE TITRE',
-  question: 'Quelle est la capitale de la France ?',
-  type: 'blindtest',
-  answer: 'paris',
-  file: ''
-
-}
-
-const questions = [quizzQuestion, blindTestQuestion, textQuestion]
-
-console.log(questions)
-/*
-
-ID question = id page
-
-vérifier type question : changer display de la page : 3 sous composants
-
-*/
-
-const QuizzPage = () => {
+  const questionType = questions[id].type
+  const limit = questions.length - 1
   return (
     <div className='quizz-page'>
-      <QuizzHeader />
+        <h1 className='quizz-h1'>{questions[id].h1}</h1>
+      <Pot coins={coins}/>
+        { questionType === 'blindtest' && <BlindTest question={questions[id]} coins={coins} setCoins={setCoins} limit={limit}/> }
+        { questionType === 'truefalse' && <TrueFalse question={questions[id]} coins={coins} setCoins={setCoins} limit={limit}/> }
+        { questionType === 'text' && <Text question={questions[id]} coins={coins} setCoins={setCoins} limit={limit}/> }
+      <HomeButton />
     </div>
   )
 }

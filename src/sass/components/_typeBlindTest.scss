@@ -1,0 +1,27 @@
+@use '../abstract/' as a;
+
+.controls-container {
+  @include a.flex-center;
+}
+
+.btn-check {
+  background-color: a.$dyellow;
+  border: none;
+  height: 40px;
+  width: 40px;
+  border-radius: 10px;
+}
+
+.player-button {
+  @include a.flex-center;
+  background-color: a.$dyellow;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.player-button-icon {
+  font-size: 40px;
+}

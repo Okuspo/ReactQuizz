@@ -1,0 +1,40 @@
+@use '../abstract/' as a;
+
+.question-container {
+  @include a.flex-center;
+  width: 400px;
+  height: 280px;
+  background-color: a.$lmarine;
+  border-radius: 30px;
+  flex-direction: column;
+  font-family: 'Titan One', sans-serif;
+  font-size: 34px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.question-wrapper {
+  @include a.flex-center;
+  margin-top: 200px;
+  flex-direction: column;
+}
+
+.buttons-container {
+  width: 400px;
+  @include a.flex-center(space-evenly);
+}
+
+.text-input {
+  color: black;
+  font-size: 24px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  margin-right: 10px;
+  border-radius: 10px;
+  border: none;
+  height: 40px;
+  outline: none;
+  &:focus {
+    outline: 2px solid a.$dyellow;
+  }
+}

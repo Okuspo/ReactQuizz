@@ -1,0 +1,39 @@
+@use '../abstract/' as a;
+
+.button {
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-family: 'Titan One', sans-serif;
+  font-size: 34px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-true {
+  background-color: a.$lgreen;
+  &:hover {
+    transform: rotate(-10deg);
+    transition: transform .10s ease-in-out;
+  }
+}
+
+.btn-false {
+  background-color: a.$lred;
+  &:hover {
+    transform: rotate(10deg);
+    transition: transform .10s ease-in-out;
+  }
+}
+
+.home-link {
+  @include a.flex-center;
+  position: absolute;
+  left: 50px;
+  bottom: 50px;
+  width: 60px;
+  height: 60px;
+  border-radius: 20px;
+  background-color: a.$lmarine;
+}
+

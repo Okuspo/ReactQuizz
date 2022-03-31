@@ -2,7 +2,7 @@
 
 .home {
   display: flex;
-  justify-content: space-between;
+  @include a.flex-center(space-between);
   align-items: center;
   width: 100vw;
   height: 100vh;
@@ -10,20 +10,17 @@
 }
 
 .go-button-container {
+  @include a.flex-center;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .go-button {
-  background-color: a.$lyellow;
+  @include a.flex-center;
+  background-color: a.$dyellow;
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
 
   span {
     font-family: 'Titan One', sans-serif;
@@ -34,11 +31,10 @@
 }
 
 .prizewheel-container {
+  @include a.flex-center;
   width: 100%;
   color: red;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
 }
 
 .prizewheel-button {
