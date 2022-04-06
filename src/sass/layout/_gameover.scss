@@ -13,8 +13,11 @@
   font-size: 30px;
   span {
     font-family: 'Titan One', sans-serif;
-    color: a.$dyellow;
   }
+}
+
+.game-over-congrats {
+  color: a.$dyellow;
 }
 
 .go-pot {

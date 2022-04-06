@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import Pot from '../components/Pot'
 import HomeButton from '../components/HomeButton'
-import Wheel from '../assets/wheel_2.svg'
-import Pin from '../assets/pin_2.svg'
+import Wheel from '../assets/wheel_3.svg'
+import Pin from '../assets/pin_3.svg'
+import Lever from '../assets/lever.svg'
 import { v4 } from 'uuid'
 
+console.log(Lever)
 const prizePool = [
   {
     prize: 'ticket',
@@ -102,9 +104,8 @@ const PrizeWheel = ({ jackpotWon, setJackpotWon, coins, setCoins }) => {
     if (isAnimationPlaying) return
 
     const wheel = document.querySelector('.wheel')
-    const spinBtn = document.querySelector('.btn-wheel')
     const pin = document.querySelector('.pin')
-
+    const lever = document.querySelector('.lever')
     if (coins > 0) {
       let wheelSpin = spinWheel()
       if (jackpotWon && wheelSpin % 360 === 0) {
@@ -122,16 +123,16 @@ const PrizeWheel = ({ jackpotWon, setJackpotWon, coins, setCoins }) => {
       setOscillationIteration(computeOscillationIteration(wheelSpin))
 
       wheel.classList.add('spinning')
-      spinBtn.classList.add('btn-inactive')
       pin.classList.add('oscillate')
-
+      lever.classList.add('lvr-active')
       setTimeout(() => {
         pin.classList.remove('oscillate')
+        lever.classList.remove('lvr-active')
       }, pinAnimationTimer)
 
       setTimeout(() => {
         wheel.classList.remove('spinning')
-        spinBtn.classList.remove('btn-inactive')
+
         storePrizes(computePrizeIndex(wheelSpin))
         setIsAnimationPlaying(false)
       }, wheelAnimationTimer)
@@ -151,15 +152,16 @@ const PrizeWheel = ({ jackpotWon, setJackpotWon, coins, setCoins }) => {
       {<Pot coins={coins}/>}
 
       <div className="prize-wheel-container">
+      <ul className="prizes-won">{ prizesWon.map(prize => { return <li className='prize-line' key={v4()}><span className='prize-quantity'>{prize.quantity}</span><span className='prize-content'>{prize.content}</span></li> }) }</ul>
 
         <div className="wheel-wrapper">
           <div className="wheel-container">
+            <img className='lever' src={Lever} alt='lever' onClick={handleClick}/>
             <img className='pin' style= {pinStyle} src={Pin} alt='pin' />
             <img className='wheel' style={wheelStyle} src={Wheel} alt='wheel'/>
           </div>
-          <button className='btn-wheel' onClick={handleClick}>Tourner !</button>
         </div>
-        <ul className="prizes-won">{ prizesWon.map(prize => { return <li className='prize-line' key={v4()}><span className='prize-quantity'>{prize.quantity}</span><span className='prize-content'>{prize.content}</span></li> }) }</ul>
+
       </div>
       <HomeButton />
     </div>

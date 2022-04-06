@@ -18,7 +18,7 @@ const Home = ({ saveGame }) => {
     </NavLink>
     <div className='prizewheel-container'>
       <NavLink to='/prizewheel' className='prizewheel-button'>
-        <span>Routourne</span>
+        <span>La Routourne</span>
         <img src={WheelIcon} alt='wheel icon'/>
       </NavLink>
     </div>

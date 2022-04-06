@@ -45,3 +45,8 @@
     margin-right: 1em;
   }
 }
+
+.btn-pressed {
+  transform: scale(0.75);
+  transition: transform .25s ease-in-out;
+}

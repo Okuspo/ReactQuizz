@@ -15,7 +15,7 @@
 }
 
 .prizes-won {
-  margin-left: 50px;
+  margin-right: 50px;
 }
 
 .wheel-container {
@@ -23,11 +23,32 @@
   position: relative;
 }
 
+.wheel {
+  position: relative;
+  z-index: 1;
+}
+
 .pin {
   position: absolute;
   top: -20px;
   left: 45%;
   z-index: 2;
+}
+
+.lever {
+  position: absolute;
+  top: 44%;
+  left: 50%;
+  z-index: 0;
+  transform: rotate(-30deg);
+  transform-origin: left;
+  cursor: pointer;
+}
+
+.lvr-active {
+  
+  animation: pull 4s ease-in-out forwards;
+  
 }
 
 .btn-wheel {
@@ -92,5 +113,20 @@
   }
   100% {
     transform: rotate(0deg);
+  }
+}
+
+@keyframes pull {
+  0% {
+    transform: rotate(-30deg);
+    transform-origin: left;
+  }
+  10% {
+    transform: rotate(30deg);
+    transform-origin: left;
+  }
+  100% {
+    transform: rotate(-30deg);
+    transform-origin: left;
   }
 }
