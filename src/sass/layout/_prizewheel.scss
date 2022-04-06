@@ -28,16 +28,26 @@
   padding: 5px 10px;
 }
 
+.btn-inactive {
+  background-color: a.$dgrey;
+}
+
 .spinning {
-  animation: spin 3s ease-in-out forwards;
+  animation: spin 8s ease-out forwards;
 }
 
 
 @keyframes spin {
   0% {
-    transform: rotate(var(--spinStart))
+    transform: rotate(0deg)
+  }
+  30% {
+    transform: rotate(var(--spinEnd))
+  }
+  75% {
+    transform: rotate(var(--spinEnd))
   }
   100% {
-    transform: rotate(var(--spinEnd))
+    transform: rotate(0deg);
   }
 }
