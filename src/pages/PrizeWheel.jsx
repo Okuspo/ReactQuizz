@@ -18,24 +18,27 @@ const PrizeWheel = ({ coins, setCoins }) => {
     return (spinNumber * (360 / wheelPositions) + (additionalTurns * 360)).toString()
   }
 
-  function computeOscillationSpeed (numberOfSpins) {
-    return 4 / (numberOfSpins / 45)
+  function computeOscillationIteration (spins) {
+    return (spins / 45) - 1
+  }
+
+  function computeOscillationSpeed (spins) {
+    return 4 / (spins / 45)
   }
 
   const firstSpin = spinWheel()
   const [wheelEndPos, setWheelEndPos] = useState(firstSpin)
-  const [oscillationIteration, setOscillationIteration] = useState(computeOscillationSpeed(firstSpin))
-  const [oscillationSpeed, setOscillationSpeed] = useState(4 / oscillationIteration)
+  const [oscillationIteration, setOscillationIteration] = useState(computeOscillationIteration(firstSpin))
+  const [oscillationSpeed, setOscillationSpeed] = useState(computeOscillationSpeed(firstSpin))
   const [jackpotWon, setJackpotWon] = useState(false)
   const [isAnimationPlaying, setIsAnimationPlaying] = useState(false)
 
   function handleClick () {
     if (isAnimationPlaying) return
 
-    // Generate a number of spins
-    let spins = spinWheel()
-
     if (coins > 0) {
+      // Generate a number of spins
+      let spins = spinWheel()
       // Consume 1 coin to spin the wheel
       setCoins(coins - 1)
       const wheel = document.querySelector('.wheel')
@@ -62,7 +65,7 @@ const PrizeWheel = ({ coins, setCoins }) => {
         if (coins === 2 && !jackpotWon) spins = 2520
 
         setWheelEndPos(spins)
-        setOscillationIteration((spins / 45) - 2)
+        setOscillationIteration(computeOscillationIteration(spins))
         setIsAnimationPlaying(false)
       }, 5000)
     }
@@ -75,7 +78,6 @@ const PrizeWheel = ({ coins, setCoins }) => {
     '--oscillationSpeed': `${oscillationSpeed}s`,
     '--oscillationIteration': `${oscillationIteration}`
   }
-
   return (
     <div className='prize-wheel'>
       <h1>La Routourne</h1>

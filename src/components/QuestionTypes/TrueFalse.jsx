@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
-const TrueFalse = ({ question, coins, setCoins, limit }) => {
+const TrueFalse = ({ setSaveGame, progress, setProgress, question, coins, setCoins, limit }) => {
   const { id } = useParams()
   const idInt = parseInt(id)
   const navigate = useNavigate()
@@ -10,15 +10,37 @@ const TrueFalse = ({ question, coins, setCoins, limit }) => {
     question: PropTypes.object,
     coins: PropTypes.number,
     setCoins: PropTypes.func,
-    limit: PropTypes.number
+    limit: PropTypes.number,
+    progress: PropTypes.object,
+    setProgress: PropTypes.func,
+    setSaveGame: PropTypes.func
   }
 
   function handleClick (e) {
+    setSaveGame(idInt + 1)
     let answer, addedCoin
+    const newProgressAnswers = progress.answers
     e.target.value === 'true' ? answer = true : answer = false
-    answer === question.answer ? addedCoin = 1 : addedCoin = 0
+    if (answer === question.answer) {
+      addedCoin = 1
+      newProgressAnswers.push(true)
+    } else {
+      addedCoin = 0
+      newProgressAnswers.push(false)
+    }
+    const newProgress = progress
+    newProgress.answers = newProgressAnswers
+    setProgress(newProgress)
     setCoins(coins + addedCoin)
-    idInt === limit ? navigate('/gameover') : navigate(`/quizz/${idInt + 1}`)
+
+    if (idInt === limit) {
+      setSaveGame(0)
+      newProgress.answers = []
+      setProgress(newProgress)
+      navigate('/gameover')
+    } else {
+      navigate(`/quizz/${idInt + 1}`)
+    }
   }
 
   return (

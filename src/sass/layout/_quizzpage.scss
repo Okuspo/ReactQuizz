@@ -1,0 +1,6 @@
+@use '../abstract/' as a;
+
+.quizz-page {
+  @include a.flex-center;
+  flex-direction: column;
+}

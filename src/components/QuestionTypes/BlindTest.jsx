@@ -6,12 +6,15 @@ import { faCheck, faPlay, faPause } from '@fortawesome/free-solid-svg-icons'
 import Music from '../../assets/audiotest.mp3'
 import ReactHowler from 'react-howler/lib/ReactHowler'
 
-const BlindTest = ({ question, coins, setCoins, limit }) => {
+const BlindTest = ({ setSaveGame, progress, setProgress, question, coins, setCoins, limit }) => {
   BlindTest.propTypes = {
     question: PropTypes.object,
     coins: PropTypes.number,
     setCoins: PropTypes.func,
-    limit: PropTypes.number
+    limit: PropTypes.number,
+    progress: PropTypes.object,
+    setProgress: PropTypes.func,
+    setSaveGame: PropTypes.func
   }
 
   const { id } = useParams()
@@ -21,10 +24,29 @@ const BlindTest = ({ question, coins, setCoins, limit }) => {
   const [isPlaying, setisPlaying] = useState(false)
 
   function handleClick () {
+    setSaveGame(idInt + 1)
     let addedCoin
-    input.toLowerCase() === question.answer ? addedCoin = 1 : addedCoin = 0
+    const newProgressAnswers = progress.answers
+    if (input.toLowerCase() === question.answer) {
+      addedCoin = 1
+      newProgressAnswers.push(true)
+    } else {
+      addedCoin = 0
+      newProgressAnswers.push(false)
+    }
+    const newProgress = progress
+    newProgress.answers = newProgressAnswers
+    setProgress(newProgress)
     setCoins(coins + addedCoin)
-    idInt === limit ? navigate('/gameover') : navigate(`/quizz/${idInt + 1}`)
+
+    if (idInt === limit) {
+      setSaveGame(0)
+      newProgress.answers = []
+      setProgress(newProgress)
+      navigate('/gameover')
+    } else {
+      navigate(`/quizz/${idInt + 1}`)
+    }
     if (isPlaying) setisPlaying(false)
   }
 

@@ -1,5 +1,5 @@
 const q1 = {
-  id: 0,
+  index: 0,
   h1: 'VRAI OU FAUX ?',
   content: "Le coeur d'une crevette est logé dans sa tête",
   type: 'truefalse',
@@ -7,7 +7,7 @@ const q1 = {
 }
 
 const q2 = {
-  id: 0,
+  index: 1,
   h1: 'VRAI OU FAUX ?',
   content: 'Un pigeon',
   type: 'truefalse',
@@ -15,7 +15,7 @@ const q2 = {
 }
 
 const q3 = {
-  id: 1,
+  index: 2,
   h1: 'TROUVE LE TITRE',
   content: './audiotest.mp3',
   type: 'blindtest',
@@ -23,7 +23,7 @@ const q3 = {
 }
 
 const q4 = {
-  id: 2,
+  index: 3,
   h1: 'TROUVE LE TITRE',
   content: 'Quelle est la capitale de la France ?',
   type: 'text',
@@ -31,7 +31,7 @@ const q4 = {
 }
 
 const q5 = {
-  id: 0,
+  index: 4,
   h1: 'VRAI OU FAUX ?',
   content: "Plus de 50% des gens, à travers le monde, n'ont jamais fait ou n'ont jamais reçu d'appels téléphoniques.",
   type: 'truefalse',
@@ -39,15 +39,15 @@ const q5 = {
 }
 
 const q6 = {
-  id: 0,
+  index: 5,
   h1: 'VRAI OU FAUX ?',
-  content: "Les rats se multiplient si rapidement qu'en 18 mois, un couple de rat peut avoir plus d'un million de descendants.",
+  content: "Les rats se multiplient si rapindexement qu'en 18 mois, un couple de rat peut avoir plus d'un million de descendants.",
   type: 'truefalse',
   answer: true
 }
 
 const q7 = {
-  id: 0,
+  index: 6,
   h1: 'VRAI OU FAUX ?',
   content: "Le briquet a été inventé avant l'allumette.",
   type: 'truefalse',
@@ -55,7 +55,7 @@ const q7 = {
 }
 
 const q8 = {
-  id: 0,
+  index: 7,
   h1: 'VRAI OU FAUX ?',
   content: "On peut prononcer le mot 'Gzorglub' ",
   type: 'truefalse',
@@ -63,7 +63,7 @@ const q8 = {
 }
 
 const q9 = {
-  id: 0,
+  index: 8,
   h1: 'VRAI OU FAUX ?',
   content: "À travers le monde, 23% des problèmes aux photocopieurs sont causés par des gens qui s'assoient sur l'appareil pour photocopier leur derrière.",
   type: 'truefalse',
@@ -71,14 +71,14 @@ const q9 = {
 }
 
 const q10 = {
-  id: 0,
+  index: 9,
   h1: 'VRAI OU FAUX ?',
   content: 'La plupart des rouges à lèvres contiennent des écailles de poisson.',
   type: 'truefalse',
   answer: true
 }
 const q11 = {
-  id: 0,
+  index: 10,
   h1: 'VRAI OU FAUX ?',
   content: "À l'origine, le Coca-Cola était vert.",
   type: 'truefalse',
@@ -86,7 +86,7 @@ const q11 = {
 }
 
 const q12 = {
-  id: 0,
+  index: 11,
   h1: 'VRAI OU FAUX ?',
   content: 'Le plus jeune Pape était âgé de 11 ans.',
   type: 'truefalse',
@@ -94,7 +94,7 @@ const q12 = {
 }
 
 const q13 = {
-  id: 0,
+  index: 12,
   h1: 'VRAI OU FAUX ?',
   content: 'Les gilets pare-balles, les escaliers de secours, les essuie-glace, les imprimantes laser ont tous été inventés par des femmes.',
   type: 'truefalse',
@@ -102,14 +102,14 @@ const q13 = {
 }
 
 const q14 = {
-  id: 0,
+  index: 13,
   h1: 'VRAI OU FAUX ?',
-  content: 'G.O.L.F signifie Gentlemen Only, Ladies Forbidden.',
+  content: 'G.O.L.F signifie Gentlemen Only, Ladies Forbindexden.',
   type: 'truefalse',
   answer: true
 }
 const q15 = {
-  id: 0,
+  index: 14,
   h1: 'VRAI OU FAUX ?',
   content: 'F.U.C.K. signifie Fornication Under Consent of King.',
   type: 'truefalse',

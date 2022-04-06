@@ -9,6 +9,7 @@ const GameOver = ({ coins }) => {
   GameOver.propTypes = {
     coins: PropTypes.number
   }
+
   return (
     <div className="game-over">
       <h1 className='game-over-h1'>Bien joué !</h1>

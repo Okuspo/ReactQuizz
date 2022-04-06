@@ -1,21 +1,27 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import WheelIcon from '../assets/wheel_icon.svg'
 
-const Home = () => {
+const Home = ({ saveGame }) => {
+  Home.propTypes = {
+    saveGame: PropTypes.number
+  }
   return (
   <div className='home'>
     <h1 className='home-h1'>MEGA QUIZZ</h1>
-    <NavLink to='/quizz/0'
+    <NavLink to={`/quizz/${saveGame}`}
     className='go-button-container'>
       <div className='go-button'>
         <span>Go!</span>
       </div>
     </NavLink>
-    <NavLink to='/prizewheel' className='prizewheel-container'>
-      <div className='prizewheel-button'>
+    <div className='prizewheel-container'>
+      <NavLink to='/prizewheel' className='prizewheel-button'>
         <span>Routourne</span>
-      </div>
-    </NavLink>
+        <img src={WheelIcon} alt='wheel icon'/>
+      </NavLink>
+    </div>
   </div>
   )
 }

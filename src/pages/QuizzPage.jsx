@@ -7,11 +7,16 @@ import Text from '../components/QuestionTypes/Text'
 import PropTypes from 'prop-types'
 import HomeButton from '../components/HomeButton'
 import { questions } from '../database/questions'
+import ProgressBar from '../components/ProgressBar'
 
-const QuizzPage = ({ coins, setCoins }) => {
+const QuizzPage = ({ saveGame, setSaveGame, progress, setProgress, coins, setCoins }) => {
   QuizzPage.propTypes = {
     coins: PropTypes.number,
-    setCoins: PropTypes.func
+    setCoins: PropTypes.func,
+    progress: PropTypes.object,
+    setProgress: PropTypes.func,
+    saveGame: PropTypes.number,
+    setSaveGame: PropTypes.func
   }
   const { id } = useParams()
 
@@ -21,9 +26,37 @@ const QuizzPage = ({ coins, setCoins }) => {
     <div className='quizz-page'>
         <h1 className='quizz-h1'>{questions[id].h1}</h1>
       <Pot coins={coins}/>
-        { questionType === 'blindtest' && <BlindTest question={questions[id]} coins={coins} setCoins={setCoins} limit={limit}/> }
-        { questionType === 'truefalse' && <TrueFalse question={questions[id]} coins={coins} setCoins={setCoins} limit={limit}/> }
-        { questionType === 'text' && <Text question={questions[id]} coins={coins} setCoins={setCoins} limit={limit}/> }
+        { questionType === 'blindtest' &&
+        <BlindTest
+        question={questions[id]}
+        progress={progress}
+        setProgress={setProgress}
+        coins={coins}
+        setCoins={setCoins}
+        limit={limit}
+        setSaveGame={setSaveGame}
+        /> }
+        { questionType === 'truefalse' &&
+         <TrueFalse
+         question={questions[id]}
+         progress={progress}
+         setProgress={setProgress}
+         coins={coins}
+         setCoins={setCoins}
+         limit={limit}
+         setSaveGame={setSaveGame}
+         /> }
+        { questionType === 'text' &&
+        <Text
+        question={questions[id]}
+        progress={progress}
+        setProgress={setProgress}
+        coins={coins}
+        setCoins={setCoins}
+        limit={limit}
+        setSaveGame={setSaveGame}
+        /> }
+        <ProgressBar progress={progress} setProgress={setProgress}/>
       <HomeButton />
     </div>
   )
