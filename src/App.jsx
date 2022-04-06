@@ -8,7 +8,7 @@ import PrizeWheel from './pages/PrizeWheel'
 import QuizzPage from './pages/QuizzPage'
 
 function App () {
-  const [coins, setCoins] = useState(0)
+  const [coins, setCoins] = useState(10)
   return (
     <div className="app">
       <BrowserRouter>
@@ -19,6 +19,7 @@ function App () {
           <Route path='*' element={<NotFound />} />
           <Route path='/about' element={<About />} />
           <Route path='/gameover' element={<GameOver coins={coins}/>} />
+          <Route path='/ReactQuizz/' element={<Home />} />
         </Routes>
       </BrowserRouter>
     </div>

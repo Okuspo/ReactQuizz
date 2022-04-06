@@ -17,6 +17,7 @@
     "react-howler": "^5.2.0",
     "react-router-dom": "^6.2.2",
     "react-scripts": "5.0.0",
+    "react-simple-animate": "^3.3.12",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -26,7 +27,6 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
-
   },
   "eslintConfig": {
     "extends": [
@@ -50,7 +50,7 @@
     "@types/react-howler": "^5.2.0",
     "eslint": "^7.32.0",
     "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.2.0",
     "eslint-plugin-react": "^7.29.4",

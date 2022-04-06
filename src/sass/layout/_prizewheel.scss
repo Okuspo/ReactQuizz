@@ -29,21 +29,15 @@
 }
 
 .spinning {
-  animation: spin 2s ease-in-out normal forwards;
+  animation: spin 3s ease-in-out forwards;
 }
 
 
 @keyframes spin {
   0% {
-    
-  }
-  50% {
-    transform: rotate(-2430deg)
-  }
-  90% {
-    transform: rotate(-2430deg)
+    transform: rotate(var(--spinStart))
   }
   100% {
-    transform: rotate(0deg)
+    transform: rotate(var(--spinEnd))
   }
 }

@@ -27,6 +27,7 @@ const BlindTest = ({ question, coins, setCoins, limit }) => {
     idInt === limit ? navigate('/gameover') : navigate(`/quizz/${idInt + 1}`)
     if (isPlaying) setisPlaying(false)
   }
+
   function handlePlayerClick () {
     setisPlaying(!isPlaying)
   }
