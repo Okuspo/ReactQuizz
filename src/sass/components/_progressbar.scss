@@ -1,6 +1,7 @@
 @use '../abstract/' as a;
 .progress-bar-container {
-  margin-top: 200px;
+  position: absolute;
+  bottom: 100px;
   width: 70vw;
   display: flex;
   justify-content: space-between;

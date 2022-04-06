@@ -2,15 +2,16 @@
 
 .question-container {
   @include a.flex-center;
-  width: 400px;
-  height: 280px;
+  min-width: 400px;
+  min-height: 280px;
   background-color: a.$lmarine;
   border-radius: 30px;
   flex-direction: column;
   font-family: 'Titan One', sans-serif;
-  font-size: 34px;
+  font-size: 30px;
   margin-bottom: 24px;
   text-align: center;
+  padding: 70px;
 }
 
 .question-wrapper {

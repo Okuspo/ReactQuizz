@@ -1,12 +1,10 @@
 @use '../abstract/' as a;
 
 .home {
-  display: flex;
   @include a.flex-center(space-between);
-  align-items: center;
+  flex-wrap: wrap;
   width: 100vw;
   height: 100vh;
-  flex-wrap: wrap;
 }
 
 .go-button-container {
@@ -21,6 +19,9 @@
   height: 200px;
   border-radius: 50%;
 
+  &:hover {
+    animation: go-spin .5s ease-in-out forwards;
+  }
 
   span {
     font-family: 'Titan One', sans-serif;
@@ -44,4 +45,34 @@
    span {
     font-family: 'Titan One', sans-serif;
    }
+   &:hover {
+     img {
+      animation: routourne-spin 1s linear infinite;
+     }
+     
+   }
+}
+
+@keyframes routourne-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+
+@keyframes go-spin {
+  0% {
+    transform: scale(1);
+    
+  }
+
+  50% {
+    transform: scale(1.5) rotate(360deg);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
 }

@@ -49,10 +49,12 @@ const prizePool = [
   }
 ]
 
-const PrizeWheel = ({ coins, setCoins }) => {
+const PrizeWheel = ({ jackpotWon, setJackpotWon, coins, setCoins }) => {
   PrizeWheel.propTypes = {
     coins: PropTypes.number,
-    setCoins: PropTypes.func
+    setCoins: PropTypes.func,
+    jackpotWon: PropTypes.bool,
+    setJackpotWon: PropTypes.func
   }
 
   function spinWheel () {
@@ -73,7 +75,7 @@ const PrizeWheel = ({ coins, setCoins }) => {
   const [wheelEndPos, setWheelEndPos] = useState(0)
   const [oscillationIteration, setOscillationIteration] = useState(0)
   const [oscillationSpeed, setOscillationSpeed] = useState(0)
-  const [jackpotWon, setJackpotWon] = useState(false)
+
   const [isAnimationPlaying, setIsAnimationPlaying] = useState(false)
   const [prizesWon, setPrizesWon] = useState(prizePool)
 

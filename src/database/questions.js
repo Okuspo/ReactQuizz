@@ -41,7 +41,7 @@ const q5 = {
 const q6 = {
   index: 5,
   h1: 'VRAI OU FAUX ?',
-  content: "Les rats se multiplient si rapindexement qu'en 18 mois, un couple de rat peut avoir plus d'un million de descendants.",
+  content: "Les rats se multiplient si rapidement qu'en 18 mois, un couple de rat peut avoir plus d'un million de descendants.",
   type: 'truefalse',
   answer: true
 }
@@ -104,7 +104,7 @@ const q13 = {
 const q14 = {
   index: 13,
   h1: 'VRAI OU FAUX ?',
-  content: 'G.O.L.F signifie Gentlemen Only, Ladies Forbindexden.',
+  content: 'G.O.L.F signifie Gentlemen Only, Ladies Forbidden.',
   type: 'truefalse',
   answer: true
 }
