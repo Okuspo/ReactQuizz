@@ -9,7 +9,7 @@ import QuizzPage from './pages/QuizzPage'
 import { questions } from './database/questions'
 
 function App () {
-  const [coins, setCoins] = useState(0)
+  const [coins, setCoins] = useState(20)
   const [progress, setProgress] = useState({
     count: questions.length,
     answers: []

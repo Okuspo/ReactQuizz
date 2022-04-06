@@ -1,7 +1,21 @@
 @use '../abstract/' as a;
-.prize-wheel {
+
+.prize-wheel-page {
   @include a.flex-center;
   flex-direction: column;
+}
+
+.prize-wheel-container {
+  @include a.flex-center;
+}
+
+.wheel-wrapper {
+  @include a.flex-center;
+  flex-direction: column;
+}
+
+.prizes-won {
+  margin-left: 50px;
 }
 
 .wheel-container {
@@ -24,7 +38,26 @@
   font-family: 'Titan One', sans-serif;
   border-radius: 10px;
   padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 20px;
 }
+
+.prize-line {
+  display: flex;
+  align-items: center;
+}
+
+.prize-quantity {
+  font-family: 'Titan One', sans-serif;
+  color: a.$dyellow;
+  font-size: 30px;
+  margin-right: .5em;
+}
+
+.prize-content {
+  font-family: 'Titan One', sans-serif;
+}
+
 
 .btn-inactive {
   background-color: a.$dgrey;
@@ -49,21 +82,6 @@
   }
 
 }
-
-/* @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  30% {
-    transform: rotate(var(--spinEnd));
-  }
-  75% {
-    transform: rotate(var(--spinEnd));
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-} */
 
 @keyframes oscillate {
   0% {

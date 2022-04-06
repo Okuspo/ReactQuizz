@@ -19,7 +19,8 @@ const Text = ({ setSaveGame, progress, setProgress, question, coins, setCoins, l
     setSaveGame: PropTypes.func
   }
 
-  function handleClick () {
+  function handleSubmit (e) {
+    e.preventDefault()
     setSaveGame(idInt + 1)
     let addedCoin
     const newProgressAnswers = progress.answers
@@ -50,10 +51,10 @@ const Text = ({ setSaveGame, progress, setProgress, question, coins, setCoins, l
       <div className="question-container">
         {question.content}
       </div>
-      <div className="controls-container">
+      <form className="controls-container" onSubmit={handleSubmit}>
         <input className='text-input' type='text' value={input} onInput={ e => setInput(e.target.value)}></input>
-        <button className='btn-check' onClick={handleClick}><FontAwesomeIcon icon={faCheck} /></button>
-      </div>
+        <button className='btn-check' type='submit'><FontAwesomeIcon icon={faCheck} /></button>
+      </form>
     </div>
   )
 }
