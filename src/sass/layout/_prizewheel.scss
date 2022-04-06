@@ -11,10 +11,8 @@
 
 .pin {
   position: absolute;
-  top:0;
-  left: 50%;
-  right: 50%;
-  transform: translate(-50%, -50%);
+  top: -20px;
+  left: 45%;
   z-index: 2;
 }
 
@@ -33,19 +31,46 @@
 }
 
 .spinning {
-  animation: spin 8s ease-out forwards;
+  animation: spin 4s ease-out forwards;
 }
 
+.oscillate {
+  transform-origin: 50% top;
+  animation: oscillate var(--oscillationSpeed);
+  animation-iteration-count: var(--oscillationIteration);
+}
 
 @keyframes spin {
   0% {
-    transform: rotate(0deg)
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(var(--spinEnd));
+  }
+
+}
+
+/* @keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
   30% {
-    transform: rotate(var(--spinEnd))
+    transform: rotate(var(--spinEnd));
   }
   75% {
-    transform: rotate(var(--spinEnd))
+    transform: rotate(var(--spinEnd));
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+} */
+
+@keyframes oscillate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-45deg);
   }
   100% {
     transform: rotate(0deg);

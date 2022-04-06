@@ -10,28 +10,47 @@ const PrizeWheel = ({ coins, setCoins }) => {
     coins: PropTypes.number,
     setCoins: PropTypes.func
   }
-  const [wheelEndPos, setWheelEndPos] = useState(spinWheel())
-  const [jackpotWon, setJackpotWon] = useState(false)
-  const [isAnimationPlaying, setIsAnimationPlaying] = useState(false)
 
   function spinWheel () {
     const wheelPositions = 8
     const spinNumber = Math.floor(Math.random() * wheelPositions)
-    const additionalTurns = Math.floor((Math.random() * 10) + 3)
-    const result = (spinNumber * (360 / wheelPositions) + (additionalTurns * 360)).toString()
-    return (`${result}deg`)
+    const additionalTurns = Math.floor((Math.random() * 10) + 1)
+    return (spinNumber * (360 / wheelPositions) + (additionalTurns * 360)).toString()
   }
+
+  function computeOscillationSpeed (numberOfSpins) {
+    return 4 / (numberOfSpins / 45)
+  }
+
+  const firstSpin = spinWheel()
+  const [wheelEndPos, setWheelEndPos] = useState(firstSpin)
+  const [oscillationIteration, setOscillationIteration] = useState(computeOscillationSpeed(firstSpin))
+  const [oscillationSpeed, setOscillationSpeed] = useState(4 / oscillationIteration)
+  const [jackpotWon, setJackpotWon] = useState(false)
+  const [isAnimationPlaying, setIsAnimationPlaying] = useState(false)
 
   function handleClick () {
     if (isAnimationPlaying) return
+
+    // Generate a number of spins
     let spins = spinWheel()
+
     if (coins > 0) {
+      // Consume 1 coin to spin the wheel
       setCoins(coins - 1)
       const wheel = document.querySelector('.wheel')
       const spinBtn = document.querySelector('.btn-wheel')
+      const pin = document.querySelector('.pin')
       wheel.classList.add('spinning')
       spinBtn.classList.add('btn-inactive')
+      pin.classList.add('oscillate')
       setIsAnimationPlaying(true)
+
+      setTimeout(() => {
+        pin.classList.remove('oscillate')
+        setOscillationSpeed(computeOscillationSpeed(spins))
+      }, 4000)
+
       setTimeout(() => {
         wheel.classList.remove('spinning')
         spinBtn.classList.remove('btn-inactive')
@@ -40,15 +59,21 @@ const PrizeWheel = ({ coins, setCoins }) => {
         if (spins % 360 === 0) setJackpotWon(true)
 
         // Rigs the prize wheel to give jackpot on last spin
-        if (coins === 2 && !jackpotWon) spins = '2520deg'
+        if (coins === 2 && !jackpotWon) spins = 2520
 
         setWheelEndPos(spins)
+        setOscillationIteration((spins / 45) - 2)
         setIsAnimationPlaying(false)
-      }, 8500)
+      }, 5000)
     }
   }
-  const style = {
-    '--spinEnd': `${wheelEndPos}`
+
+  const wheelStyle = {
+    '--spinEnd': `${wheelEndPos}deg`
+  }
+  const pinStyle = {
+    '--oscillationSpeed': `${oscillationSpeed}s`,
+    '--oscillationIteration': `${oscillationIteration}`
   }
 
   return (
@@ -56,8 +81,8 @@ const PrizeWheel = ({ coins, setCoins }) => {
       <h1>La Routourne</h1>
       {<Pot coins={coins}/>}
       <div className="wheel-container">
-        <img className='pin' src={Pin} alt='pin' />
-        <img className='wheel' style={style} src={Wheel} alt='wheel'/>
+        <img className='pin' style= {pinStyle} src={Pin} alt='pin' />
+        <img className='wheel' style={wheelStyle} src={Wheel} alt='wheel'/>
       </div>
       <button className='btn-wheel' onClick={handleClick}>Tourner !</button>
       <HomeButton />

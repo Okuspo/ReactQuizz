@@ -8,7 +8,7 @@ import PrizeWheel from './pages/PrizeWheel'
 import QuizzPage from './pages/QuizzPage'
 
 function App () {
-  const [coins, setCoins] = useState(3)
+  const [coins, setCoins] = useState(5)
   return (
     <div className="app">
       <BrowserRouter>
