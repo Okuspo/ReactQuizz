@@ -1,24 +1,24 @@
-<svg width="712" height="713" viewBox="0 0 712 713" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<mask id="mask0_13_15" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="712" height="713">
-<circle cx="356" cy="356.991" r="356" transform="rotate(90 356 356.991)" fill="#F39C12"/>
+<svg width="551" height="551" viewBox="0 0 551 551" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<mask id="mask0_13_15" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="551" height="551">
+<circle cx="275.417" cy="275.583" r="275.417" transform="rotate(90 275.417 275.583)" fill="#F39C12"/>
 </mask>
 <g mask="url(#mask0_13_15)">
-<path d="M355.991 356.991L-59.5088 531.928L-59.5088 182.054L355.991 356.991Z" fill="#E74C3C"/>
-<path d="M355.991 356.991L771.491 182.054L771.491 531.928L355.991 356.991Z" fill="#1ABC9C"/>
-<path d="M355.991 356.991L181.054 -58.5088L530.928 -58.5088L355.991 356.991Z" fill="#34495E"/>
-<path d="M355.991 356.991L530.928 772.491L181.054 772.491L355.991 356.991Z" fill="#3498DB"/>
-<path d="M355.991 356.991L526.095 -60.511L773.493 186.888L355.991 356.991Z" fill="#F1C40F"/>
-<path d="M355.991 356.991L185.888 774.493L-61.5108 527.095L355.991 356.991Z" fill="#9B59B6"/>
-<path d="M355.991 356.991L-61.511 186.888L185.887 -60.5108L355.991 356.991Z" fill="#2ECC71"/>
-<path d="M355.991 356.991L773.493 527.095L526.095 774.493L355.991 356.991Z" fill="#E67E22"/>
-<rect x="150.945" y="215.576" width="90" height="90" transform="rotate(-45 150.945 215.576)" fill="url(#pattern0)"/>
-<rect x="401" y="602.982" width="90" height="90" transform="rotate(180 401 602.982)" fill="url(#pattern1)"/>
-<rect x="110.009" y="401.991" width="90" height="90" transform="rotate(-90 110.009 401.991)" fill="url(#pattern2)"/>
-<rect x="594.991" y="311.991" width="90" height="90" transform="rotate(90 594.991 311.991)" fill="url(#pattern3)"/>
-<rect x="213.878" y="562.753" width="90" height="90" transform="rotate(-135 213.878 562.753)" fill="url(#pattern4)"/>
-<rect x="561.762" y="499.113" width="90" height="90" transform="rotate(135 561.762 499.113)" fill="url(#pattern5)"/>
-<rect x="311" y="118" width="90" height="90" fill="url(#pattern6)"/>
-<rect x="498.122" y="151.229" width="90" height="90" transform="rotate(45 498.122 151.229)" fill="url(#pattern7)"/>
+<path d="M275.411 275.583L-46.0386 410.922L-46.0386 140.244L275.411 275.583Z" fill="#E74C3C"/>
+<path d="M275.411 275.583L596.86 140.244L596.86 410.922L275.411 275.583Z" fill="#1ABC9C"/>
+<path d="M275.411 275.583L140.071 -45.8665L410.75 -45.8665L275.411 275.583Z" fill="#34495E"/>
+<path d="M275.411 275.583L410.75 597.032L140.071 597.032L275.411 275.583Z" fill="#3498DB"/>
+<path d="M275.411 275.583L407.01 -47.4156L598.409 143.983L275.411 275.583Z" fill="#F1C40F"/>
+<path d="M275.41 275.583L143.811 598.581L-47.5877 407.182L275.41 275.583Z" fill="#9B59B6"/>
+<path d="M275.41 275.583L-47.5877 143.983L143.811 -47.4153L275.41 275.583Z" fill="#2ECC71"/>
+<path d="M275.411 275.583L598.409 407.182L407.01 598.581L275.411 275.583Z" fill="#E67E22"/>
+<rect x="116.778" y="166.178" width="69.628" height="69.628" transform="rotate(-45 116.778 166.178)" fill="url(#pattern0)"/>
+<rect x="310.231" y="465.892" width="69.628" height="69.628" transform="rotate(180 310.231 465.892)" fill="url(#pattern1)"/>
+<rect x="85.1077" y="310.396" width="69.628" height="69.628" transform="rotate(-90 85.1077 310.396)" fill="url(#pattern2)"/>
+<rect x="460.312" y="240.769" width="69.628" height="69.628" transform="rotate(90 460.312 240.769)" fill="url(#pattern3)"/>
+<rect x="165.465" y="434.769" width="69.628" height="69.628" transform="rotate(-135 165.465 434.769)" fill="url(#pattern4)"/>
+<rect x="434.604" y="385.535" width="69.628" height="69.628" transform="rotate(135 434.604 385.535)" fill="url(#pattern5)"/>
+<rect x="240.603" y="90.6885" width="69.628" height="69.628" fill="url(#pattern6)"/>
+<rect x="385.369" y="116.396" width="69.628" height="69.628" transform="rotate(45 385.369 116.396)" fill="url(#pattern7)"/>
 </g>
 <defs>
 <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
