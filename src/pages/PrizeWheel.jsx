@@ -106,6 +106,7 @@ const PrizeWheel = ({ jackpotWon, setJackpotWon, coins, setCoins }) => {
     const wheel = document.querySelector('.wheel')
     const pin = document.querySelector('.pin')
     const lever = document.querySelector('.lever')
+
     if (coins > 0) {
       let wheelSpin = spinWheel()
       if (jackpotWon && wheelSpin % 360 === 0) {
@@ -149,7 +150,9 @@ const PrizeWheel = ({ jackpotWon, setJackpotWon, coins, setCoins }) => {
   return (
     <div className='prize-wheel-page'>
       <h1>La Routourne</h1>
-      {<Pot coins={coins}/>}
+      <div className='prize-pot'>
+        {<Pot coins={coins}/>}
+      </div>
 
       <div className="prize-wheel-container">
       <ul className="prizes-won">{ prizesWon.map(prize => { return <li className='prize-line' key={v4()}><span className='prize-quantity'>{prize.quantity}</span><span className='prize-content'>{prize.content}</span></li> }) }</ul>

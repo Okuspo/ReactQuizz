@@ -23,6 +23,7 @@
 .go-pot {
   @include a.flex-center;
   width: 200px;
+  animation: pop .5s ease-in-out;
 }
 
 #go-coin-amount {
@@ -39,4 +40,16 @@
   font-family: 'Titan One', sans-serif;
   border-radius: 15px;
   font-size: 30px;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
