@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# React Quizz
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A personal project to learn React aside from my OpenClassroom courses.
 
-## Available Scripts
+## I made 3 types of questions
 
-In the project directory, you can run:
+- True or False
+- Blind test (music)
+- Type the answer
 
-### `npm start`
+## In this project I learned
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- How to dynamically create *n* pages based on an array of questions
+- How to use React Howler to play sounds (didn't dig further than play/pause yet)
+- A bit more about React Virtual DOM
+- How to build a prize wheel
+- How to manage states and pass them as props from higher level components
+- How to handle game progress and navigation
+- How to rig a prize wheel :sweat_smile:
+- React PropTypes
+[Figma mockup](https://www.figma.com/file/SJ3jC8qHcfdh6ZyqmhzBRD/MegaQuizz?node-id=13%3A2)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## What I would like to do next
 
-### `npm test`
+- Improve CSS layout
+- Make it responsive
+- Replace questions by good ones and not placeholders
+- Add more music/text questions
+- Learn drag and drop to pull the prize wheel lever and insert coin (for desktop and/or touch)
+- Create new types of questions : mini games (with drag and drop too), or picture/video questions
+- Learn useContext() hook
+- Add sounds
+- Add CSS animations on buttons from event types I'm not familiar with (onMouseDown / onMouseUp)
+- Rebuild it in TypeScript when JS version will be good enough
+- Add a basic Node backend
+- Add a feature to export the prizes won ia txt file
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## What I won't do
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Send you Deep Purple tickets (only for my GF). :stuck_out_tongue:
