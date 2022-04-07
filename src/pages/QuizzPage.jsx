@@ -34,6 +34,7 @@ const QuizzPage = ({ saveGame, setSaveGame, progress, setProgress, coins, setCoi
         coins={coins}
         setCoins={setCoins}
         limit={limit}
+        saveGame={saveGame}
         setSaveGame={setSaveGame}
         /> }
         { questionType === 'truefalse' &&
@@ -44,6 +45,7 @@ const QuizzPage = ({ saveGame, setSaveGame, progress, setProgress, coins, setCoi
          coins={coins}
          setCoins={setCoins}
          limit={limit}
+         saveGame={saveGame}
          setSaveGame={setSaveGame}
          /> }
         { questionType === 'text' &&
@@ -54,6 +56,7 @@ const QuizzPage = ({ saveGame, setSaveGame, progress, setProgress, coins, setCoi
         coins={coins}
         setCoins={setCoins}
         limit={limit}
+        saveGame={saveGame}
         setSaveGame={setSaveGame}
         /> }
         <ProgressBar progress={progress} setProgress={setProgress}/>

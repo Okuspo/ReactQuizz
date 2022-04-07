@@ -1,11 +1,9 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { NavLink, useNavigate, useParams } from 'react-router-dom'
+import Next from '../../assets/arrow_next.svg'
 
-const TrueFalse = ({ setSaveGame, progress, setProgress, question, coins, setCoins, limit }) => {
-  const { id } = useParams()
-  const idInt = parseInt(id)
-  const navigate = useNavigate()
+const TrueFalse = ({ saveGame, setSaveGame, progress, setProgress, question, coins, setCoins, limit }) => {
   TrueFalse.propTypes = {
     question: PropTypes.object,
     coins: PropTypes.number,
@@ -13,10 +11,17 @@ const TrueFalse = ({ setSaveGame, progress, setProgress, question, coins, setCoi
     limit: PropTypes.number,
     progress: PropTypes.object,
     setProgress: PropTypes.func,
-    setSaveGame: PropTypes.func
+    setSaveGame: PropTypes.func,
+    saveGame: PropTypes.number
   }
+  const { id } = useParams()
+  const idInt = parseInt(id)
+  const navigate = useNavigate()
+  const questionSolved = saveGame > idInt
 
   function handleClick (e) {
+    console.log(saveGame)
+    if (questionSolved) return
     setSaveGame(idInt + 1)
     let answer, addedCoin
     const newProgressAnswers = progress.answers
@@ -49,9 +54,15 @@ const TrueFalse = ({ setSaveGame, progress, setProgress, question, coins, setCoi
         {question.content}
       </div>
       <div className="buttons-container">
-        <button className='button btn-true' value='true' onClick={handleClick}>VRAI</button>
-        <button className='button btn-false' value='false' onClick={handleClick}>FAUX</button>
+        <button className={questionSolved ? 'button btn-true btn-inactive' : 'button btn-true'} value='true' onClick={handleClick}>VRAI</button>
+        <button className={questionSolved ? 'button btn-false btn-inactive' : 'button btn-false'} value='false' onClick={handleClick}>FAUX</button>
       </div>
+      {
+        questionSolved &&
+        <NavLink className='resume-link' to={`/quizz/${saveGame}`}>
+          <img src={Next} alt='next-page'/>
+        </NavLink>
+      }
     </div>
   )
 }

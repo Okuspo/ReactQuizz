@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { useNavigate, useParams } from 'react-router-dom'
+import { NavLink, useNavigate, useParams } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck, faPlay, faPause } from '@fortawesome/free-solid-svg-icons'
 import Music from '../../assets/audiotest.mp3'
 import ReactHowler from 'react-howler/lib/ReactHowler'
+import Next from '../../assets/arrow_next.svg'
 
-const BlindTest = ({ setSaveGame, progress, setProgress, question, coins, setCoins, limit }) => {
+const BlindTest = ({ saveGame, setSaveGame, progress, setProgress, question, coins, setCoins, limit }) => {
   BlindTest.propTypes = {
     question: PropTypes.object,
     coins: PropTypes.number,
@@ -14,7 +15,8 @@ const BlindTest = ({ setSaveGame, progress, setProgress, question, coins, setCoi
     limit: PropTypes.number,
     progress: PropTypes.object,
     setProgress: PropTypes.func,
-    setSaveGame: PropTypes.func
+    setSaveGame: PropTypes.func,
+    saveGame: PropTypes.number
   }
 
   const { id } = useParams()
@@ -22,9 +24,11 @@ const BlindTest = ({ setSaveGame, progress, setProgress, question, coins, setCoi
   const navigate = useNavigate()
   const [input, setInput] = useState('')
   const [isPlaying, setisPlaying] = useState(false)
+  const questionSolved = saveGame > idInt
 
   function handleSubmit (e) {
     e.preventDefault()
+    if (questionSolved) return
     setSaveGame(idInt + 1)
     let addedCoin
     const newProgressAnswers = progress.answers
@@ -66,8 +70,14 @@ const BlindTest = ({ setSaveGame, progress, setProgress, question, coins, setCoi
       </div>
       <form className="controls-container" onSubmit={handleSubmit}>
         <input className='text-input' type='text' value={input} onInput={e => setInput(e.target.value)}></input>
-        <button className='btn-check' type='submit'><FontAwesomeIcon icon={faCheck}/></button>
+        <button className={questionSolved ? 'btn-check btn-inactive' : 'btn-check'} type='submit'><FontAwesomeIcon icon={faCheck} /></button>
       </form>
+      {
+        questionSolved &&
+        <NavLink className='resume-link' to={`/quizz/${saveGame}`}>
+          <img src={Next} alt='next-page'/>
+        </NavLink>
+      }
     </div>
   )
 }

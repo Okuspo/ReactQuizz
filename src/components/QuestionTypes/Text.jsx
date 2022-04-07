@@ -1,14 +1,11 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { useNavigate, useParams } from 'react-router-dom'
+import { NavLink, useNavigate, useParams } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
+import Next from '../../assets/arrow_next.svg'
 
-const Text = ({ setSaveGame, progress, setProgress, question, coins, setCoins, limit }) => {
-  const { id } = useParams()
-  const idInt = parseInt(id)
-  const navigate = useNavigate()
-  const [input, setInput] = useState('')
+const Text = ({ saveGame, setSaveGame, progress, setProgress, question, coins, setCoins, limit }) => {
   Text.propTypes = {
     question: PropTypes.object,
     coins: PropTypes.number,
@@ -16,11 +13,18 @@ const Text = ({ setSaveGame, progress, setProgress, question, coins, setCoins, l
     limit: PropTypes.number,
     progress: PropTypes.object,
     setProgress: PropTypes.func,
-    setSaveGame: PropTypes.func
+    setSaveGame: PropTypes.func,
+    saveGame: PropTypes.number
   }
+  const { id } = useParams()
+  const idInt = parseInt(id)
+  const navigate = useNavigate()
+  const [input, setInput] = useState('')
+  const questionSolved = saveGame > idInt
 
   function handleSubmit (e) {
     e.preventDefault()
+    if (questionSolved) return
     setSaveGame(idInt + 1)
     let addedCoin
     const newProgressAnswers = progress.answers
@@ -53,8 +57,14 @@ const Text = ({ setSaveGame, progress, setProgress, question, coins, setCoins, l
       </div>
       <form className="controls-container" onSubmit={handleSubmit}>
         <input className='text-input' type='text' value={input} onInput={ e => setInput(e.target.value)}></input>
-        <button className='btn-check' type='submit'><FontAwesomeIcon icon={faCheck} /></button>
+        <button className={questionSolved ? 'btn-check btn-inactive' : 'btn-check'} type='submit'><FontAwesomeIcon icon={faCheck} /></button>
       </form>
+      {
+        questionSolved &&
+        <NavLink className='resume-link' to={`/quizz/${saveGame}`}>
+          <img src={Next} alt='next-page'/>
+        </NavLink>
+      }
     </div>
   )
 }
