@@ -1,17 +1,15 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { useContext } from 'react'
 import Coin from '../assets/coin.svg'
+import { AppContext } from '../App'
 
-const Pot = ({ coins }) => {
-  Pot.propTypes = {
-    coins: PropTypes.number
-  }
+const Pot = () => {
+  const context = useContext(AppContext)
 
   return (
     <div className="pot">
       <span className='pot-title'>Cagnotte</span>
       <div className="pot-content">
-        <span className='pot-amount'>{coins}</span>
+        <span className='pot-amount'>{context.coins}</span>
         <img className='coin-icon' src={Coin} alt='coin'/>
       </div>
     </div>

@@ -58,6 +58,34 @@
   font-family: 'Titan One', sans-serif;
 }
 
+.resume-game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+  & input {
+    background-color: a.$lmarine;
+    border: none;
+    font-size: 20px;
+    border-radius: 10px;
+    color: white;
+    padding: 5px 5px;
+    margin-right: 5px;
+    text-align: center;
+  }
+}
+
+.savegame-message-true {
+  font-family: 'Titan One', sans-serif;
+  color: a.$lgreen;
+}
+.savegame-message-false {
+  font-family: 'Titan One', sans-serif;
+  color: a.$lred;
+}
+
+
 @keyframes routourne-spin {
   0% {
     transform: rotate(0deg);

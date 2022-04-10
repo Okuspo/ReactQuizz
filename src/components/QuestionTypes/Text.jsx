@@ -1,33 +1,31 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import PropTypes from 'prop-types'
 import { NavLink, useNavigate, useParams } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import Next from '../../assets/arrow_next.svg'
+import { AppContext } from '../../App'
 
-const Text = ({ saveGame, setSaveGame, progress, setProgress, question, coins, setCoins, limit }) => {
+const Text = ({ question, limit }) => {
   Text.propTypes = {
     question: PropTypes.object,
-    coins: PropTypes.number,
-    setCoins: PropTypes.func,
-    limit: PropTypes.number,
-    progress: PropTypes.object,
-    setProgress: PropTypes.func,
-    setSaveGame: PropTypes.func,
-    saveGame: PropTypes.number
+    limit: PropTypes.number
   }
+
+  const context = useContext(AppContext)
+
   const { id } = useParams()
   const idInt = parseInt(id)
   const navigate = useNavigate()
   const [input, setInput] = useState('')
-  const questionSolved = saveGame > idInt
+  const questionSolved = context.saveGame > idInt
 
   function handleSubmit (e) {
     e.preventDefault()
     if (questionSolved) return
-    setSaveGame(idInt + 1)
+    context.setSaveGame(idInt + 1)
     let addedCoin
-    const newProgressAnswers = progress.answers
+    const newProgressAnswers = context.progress.answers
     if (input.toLowerCase() === question.answer) {
       addedCoin = 1
       newProgressAnswers.push(true)
@@ -35,15 +33,15 @@ const Text = ({ saveGame, setSaveGame, progress, setProgress, question, coins, s
       addedCoin = 0
       newProgressAnswers.push(false)
     }
-    const newProgress = progress
+    const newProgress = context.progress
     newProgress.answers = newProgressAnswers
-    setProgress(newProgress)
-    setCoins(coins + addedCoin)
+    context.setProgress(newProgress)
+    context.setCoins(context.coins + addedCoin)
 
     if (idInt === limit) {
-      setSaveGame(0)
+      context.setSaveGame(0)
       newProgress.answers = []
-      setProgress(newProgress)
+      context.setProgress(newProgress)
       navigate('/gameover')
     } else {
       navigate(`/quizz/${idInt + 1}`)
@@ -61,7 +59,7 @@ const Text = ({ saveGame, setSaveGame, progress, setProgress, question, coins, s
       </form>
       {
         questionSolved &&
-        <NavLink className='resume-link' to={`/quizz/${saveGame}`}>
+        <NavLink className='resume-link' to={`/quizz/${context.saveGame}`}>
           <img src={Next} alt='next-page'/>
         </NavLink>
       }

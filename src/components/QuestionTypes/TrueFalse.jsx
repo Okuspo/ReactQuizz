@@ -1,29 +1,25 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useContext } from 'react'
 import { NavLink, useNavigate, useParams } from 'react-router-dom'
+import { AppContext } from '../../App'
 import Next from '../../assets/arrow_next.svg'
 
-const TrueFalse = ({ saveGame, setSaveGame, progress, setProgress, question, coins, setCoins, limit }) => {
+const TrueFalse = ({ question, limit }) => {
   TrueFalse.propTypes = {
     question: PropTypes.object,
-    coins: PropTypes.number,
-    setCoins: PropTypes.func,
-    limit: PropTypes.number,
-    progress: PropTypes.object,
-    setProgress: PropTypes.func,
-    setSaveGame: PropTypes.func,
-    saveGame: PropTypes.number
+    limit: PropTypes.number
   }
+  const context = useContext(AppContext)
   const { id } = useParams()
   const idInt = parseInt(id)
   const navigate = useNavigate()
-  const questionSolved = saveGame > idInt
+  const questionSolved = context.saveGame > idInt
 
   function handleClick (e) {
     if (questionSolved) return
-    setSaveGame(idInt + 1)
+    context.setSaveGame(idInt + 1)
     let answer, addedCoin
-    const newProgressAnswers = progress.answers
+    const newProgressAnswers = context.progress.answers
     e.target.value === 'true' ? answer = true : answer = false
     if (answer === question.answer) {
       addedCoin = 1
@@ -32,15 +28,15 @@ const TrueFalse = ({ saveGame, setSaveGame, progress, setProgress, question, coi
       addedCoin = 0
       newProgressAnswers.push(false)
     }
-    const newProgress = progress
+    const newProgress = context.progress
     newProgress.answers = newProgressAnswers
-    setProgress(newProgress)
-    setCoins(coins + addedCoin)
+    context.setProgress(newProgress)
+    context.setCoins(context.coins + addedCoin)
 
     if (idInt === limit) {
-      setSaveGame(0)
+      context.setSaveGame(0)
       newProgress.answers = []
-      setProgress(newProgress)
+      context.setProgress(newProgress)
       navigate('/gameover')
     } else {
       navigate(`/quizz/${idInt + 1}`)
@@ -58,7 +54,7 @@ const TrueFalse = ({ saveGame, setSaveGame, progress, setProgress, question, coi
       </div>
       {
         questionSolved &&
-        <NavLink className='resume-link' to={`/quizz/${saveGame}`}>
+        <NavLink className='resume-link' to={`/quizz/${context.saveGame}`}>
           <img src={Next} alt='next-page'/>
         </NavLink>
       }

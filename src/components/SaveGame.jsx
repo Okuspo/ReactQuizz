@@ -1,20 +1,15 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
+import React, { useContext, useState } from 'react'
+import { AppContext } from '../App'
 
-const SaveGame = ({ coins, saveGame, progress }) => {
+const SaveGame = () => {
   const [saveKey, setSaveKey] = useState('')
-
-  SaveGame.propTypes = {
-    coins: PropTypes.number,
-    saveGame: PropTypes.number,
-    progress: PropTypes.object
-  }
+  const context = useContext(AppContext)
 
   function generateSaveKey () {
     const regex = /[,]/g
-    const coinsKey = String.fromCharCode(coins + 65)
-    const saveKey = String.fromCharCode(saveGame + 65)
-    const progressKey = progress.answers.map(answer => { return answer === true ? '9' : '5' }).toString().replace(regex, '')
+    const coinsKey = String.fromCharCode(context.coins + 65)
+    const saveKey = String.fromCharCode(context.saveGame + 65)
+    const progressKey = context.progress.answers.map(answer => { return answer === true ? '9' : '5' }).toString().replace(regex, '')
     const key = `${coinsKey}${saveKey}${progressKey}`
     setSaveKey(key)
   }

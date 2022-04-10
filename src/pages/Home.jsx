@@ -1,60 +1,34 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { NavLink } from 'react-router-dom'
-import PropTypes from 'prop-types'
 import WheelIcon from '../assets/wheel_icon.svg'
+import { AppContext } from '../App'
+import { decryptKeyCode, checkCodeIntegrity } from '../utils/saveUtils'
 
-const Home = ({ saveGame, setSaveGame, progress, setProgress, setCoins }) => {
+const Home = () => {
   const [input, setInput] = useState('')
-  const [errorMessage, setErrorMessage] = useState('')
-  Home.propTypes = {
-    saveGame: PropTypes.number,
-    setSaveGame: PropTypes.func,
-    progress: PropTypes.object,
-    setProgress: PropTypes.func,
-    setCoins: PropTypes.func
-  }
-
-  function decryptKeyCode (key) {
-    const coins = key[0].charCodeAt(0) - 65
-    const currentQuestion = key[1].charCodeAt(0) - 65
-    const answers = key.substr(2).split('').map(char => { return char === '9' })
-    const saveGame = {
-      coins: coins,
-      currentQuestion: currentQuestion,
-      answers: answers
-    }
-    return saveGame
-  }
+  const [saveGameMessage, setSaveGameMessage] = useState([false, ''])
+  const context = useContext(AppContext)
 
   function handleSubmit (e) {
     e.preventDefault()
     if (input.length < 2) return
-    const saveGame = decryptKeyCode(input)
-    if (!checkCodeIntegrity(saveGame)) {
-      setErrorMessage('Code invalide')
+    const save = decryptKeyCode(input)
+    if (!checkCodeIntegrity(save)) {
+      setSaveGameMessage([false, 'Code invalide'])
     } else {
-      setSaveGame(saveGame.currentQuestion)
-      setCoins(saveGame.coins)
-      const newProgress = progress
-      newProgress.answers = saveGame.answers
-      setProgress(newProgress)
+      context.setSaveGame(save.currentQuestion)
+      context.setCoins(save.coins)
+      const newProgress = context.progress
+      newProgress.answers = save.answers
+      context.setProgress(newProgress)
+      setSaveGameMessage([true, 'Code validé !'])
     }
-  }
-
-  function checkCodeIntegrity (saveGame) {
-    console.log(saveGame)
-    if (saveGame.currentQuestion !== saveGame.answers.length) return false
-    let correctAnswers = 0
-    saveGame.answers.forEach(answer => { if (answer === true) correctAnswers += 1 })
-    console.log(correctAnswers, saveGame.coins)
-    if (correctAnswers !== saveGame.coins) return false
-    return true
   }
 
   return (
   <div className='home'>
     <h1 className='home-h1'>MEGA QUIZZ</h1>
-    <NavLink to={`/quizz/${saveGame}`}
+    <NavLink to={`/quizz/${context.saveGame}`}
     className='go-button-container'>
       <div className='go-button'>
         <span>Go!</span>
@@ -67,9 +41,8 @@ const Home = ({ saveGame, setSaveGame, progress, setProgress, setCoins }) => {
       </NavLink>
     </div>
     <form className="resume-game" onSubmit={handleSubmit}>
-      <span>Code de sauvegarde ?</span>
-      <input className='saveKey-input' type='text' value={input} onInput={e => setInput(e.target.value)}></input>
-      <span className='input-error'>{errorMessage}</span>
+      <input className='saveKey-input' type='text' placeholder='Code de sauvegarde ?' value={input} onInput={e => setInput(e.target.value)}></input>
+      <span className={`savegame-message-${saveGameMessage[0]}`}>{saveGameMessage[1]}</span>
     </form>
   </div>
   )
