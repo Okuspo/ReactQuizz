@@ -9,17 +9,17 @@ const TrueFalse = ({ question, limit }) => {
     question: PropTypes.object,
     limit: PropTypes.number
   }
-  const context = useContext(AppContext)
+  const { coins, progress, saveGame, setSaveGame, setCoins, setProgress } = useContext(AppContext)
   const { id } = useParams()
   const idInt = parseInt(id)
   const navigate = useNavigate()
-  const questionSolved = context.saveGame > idInt
+  const questionSolved = saveGame > idInt
 
   function handleClick (e) {
     if (questionSolved) return
-    context.setSaveGame(idInt + 1)
+    setSaveGame(idInt + 1)
     let answer, addedCoin
-    const newProgressAnswers = context.progress.answers
+    const newProgressAnswers = progress.answers
     e.target.value === 'true' ? answer = true : answer = false
     if (answer === question.answer) {
       addedCoin = 1
@@ -28,15 +28,15 @@ const TrueFalse = ({ question, limit }) => {
       addedCoin = 0
       newProgressAnswers.push(false)
     }
-    const newProgress = context.progress
+    const newProgress = progress
     newProgress.answers = newProgressAnswers
-    context.setProgress(newProgress)
-    context.setCoins(context.coins + addedCoin)
+    setProgress(newProgress)
+    setCoins(coins + addedCoin)
 
     if (idInt === limit) {
-      context.setSaveGame(0)
+      setSaveGame(0)
       newProgress.answers = []
-      context.setProgress(newProgress)
+      setProgress(newProgress)
       navigate('/gameover')
     } else {
       navigate(`/quizz/${idInt + 1}`)
@@ -54,7 +54,7 @@ const TrueFalse = ({ question, limit }) => {
       </div>
       {
         questionSolved &&
-        <NavLink className='resume-link' to={`/quizz/${context.saveGame}`}>
+        <NavLink className='resume-link' to={`/quizz/${saveGame}`}>
           <img src={Next} alt='next-page'/>
         </NavLink>
       }

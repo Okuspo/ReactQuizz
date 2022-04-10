@@ -7,7 +7,7 @@ import { decryptKeyCode, checkCodeIntegrity } from '../utils/saveUtils'
 const Home = () => {
   const [input, setInput] = useState('')
   const [saveGameMessage, setSaveGameMessage] = useState([false, ''])
-  const context = useContext(AppContext)
+  const { progress, saveGame, setSaveGame, setCoins, setProgress } = useContext(AppContext)
 
   function handleSubmit (e) {
     e.preventDefault()
@@ -16,11 +16,11 @@ const Home = () => {
     if (!checkCodeIntegrity(save)) {
       setSaveGameMessage([false, 'Code invalide'])
     } else {
-      context.setSaveGame(save.currentQuestion)
-      context.setCoins(save.coins)
-      const newProgress = context.progress
+      setSaveGame(save.currentQuestion)
+      setCoins(save.coins)
+      const newProgress = progress
       newProgress.answers = save.answers
-      context.setProgress(newProgress)
+      setProgress(newProgress)
       setSaveGameMessage([true, 'Code validé !'])
     }
   }
@@ -28,7 +28,7 @@ const Home = () => {
   return (
   <div className='home'>
     <h1 className='home-h1'>MEGA QUIZZ</h1>
-    <NavLink to={`/quizz/${context.saveGame}`}
+    <NavLink to={`/quizz/${saveGame}`}
     className='go-button-container'>
       <div className='go-button'>
         <span>Go!</span>
