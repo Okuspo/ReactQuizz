@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { NavLink, useNavigate, useParams } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck, faPlay, faPause } from '@fortawesome/free-solid-svg-icons'
-import Music from '../../assets/audiotest.mp3'
 import ReactHowler from 'react-howler/lib/ReactHowler'
 import Next from '../../assets/arrow_next.svg'
 import { AppContext } from '../../App'
@@ -46,6 +45,7 @@ const BlindTest = ({ question, limit }) => {
       setProgress(newProgress)
       navigate('/gameover')
     } else {
+      setInput('')
       navigate(`/quizz/${idInt + 1}`)
     }
     if (isPlaying) setisPlaying(false)
@@ -58,7 +58,7 @@ const BlindTest = ({ question, limit }) => {
   return (
     <div className="question-wrapper blind-test">
       <div className="question-container">
-        <ReactHowler src={Music} playing={isPlaying} onEnd={() => setisPlaying(false)}/>
+        <ReactHowler src={question.content} playing={isPlaying} onEnd={() => setisPlaying(false)}/>
         <button className='player-button' onClick={handlePlayerClick}>
           {!isPlaying && <FontAwesomeIcon className='player-button-icon' icon={faPlay}/>}
           {isPlaying && <FontAwesomeIcon className='player-button-icon' icon={faPause}/>}

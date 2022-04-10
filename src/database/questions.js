@@ -1,49 +1,54 @@
+import m01 from '../assets/01.mp3'
+import m02 from '../assets/02.mp3'
+import m03 from '../assets/03.mp3'
+import m04 from '../assets/04.mp3'
+
 const q1 = {
   index: 0,
   h1: 'VRAI OU FAUX ?',
-  content: "Le coeur d'une crevette est logé dans sa tête",
+  content: 'Le Nord, selon comment on est tourné, ça change tout',
   type: 'truefalse',
-  answer: true
+  answer: false
 }
 
 const q2 = {
   index: 1,
   h1: 'VRAI OU FAUX ?',
-  content: 'Un pigeon',
+  content: 'Quelle est la différence entre un pigeon',
   type: 'truefalse',
   answer: true
 }
 
 const q3 = {
   index: 2,
-  h1: 'TROUVE LE TITRE',
-  content: './audiotest.mp3',
+  h1: 'TROUVE LE FILM',
+  content: m01,
   type: 'blindtest',
-  answer: 'thunder'
+  answer: 'harry potter'
 }
 
 const q4 = {
   index: 3,
-  h1: 'TROUVE LE TITRE',
-  content: 'Quelle est la capitale de la France ?',
+  h1: 'Tape  la réponse',
+  content: 'Quelle est la capitale de fRance ?',
   type: 'text',
-  answer: 'paris'
+  answer: 'r'
 }
 
 const q5 = {
   index: 4,
   h1: 'VRAI OU FAUX ?',
-  content: "Plus de 50% des gens, à travers le monde, n'ont jamais fait ou n'ont jamais reçu d'appels téléphoniques.",
+  content: 'Ami en elfe se dit Mellon',
   type: 'truefalse',
   answer: true
 }
 
 const q6 = {
   index: 5,
-  h1: 'VRAI OU FAUX ?',
-  content: "Les rats se multiplient si rapidement qu'en 18 mois, un couple de rat peut avoir plus d'un million de descendants.",
-  type: 'truefalse',
-  answer: true
+  h1: 'Trouve le film !',
+  content: m02,
+  type: 'blindtest',
+  answer: 'le voyage de chihiro'
 }
 
 const q7 = {
@@ -65,55 +70,55 @@ const q8 = {
 const q9 = {
   index: 8,
   h1: 'VRAI OU FAUX ?',
-  content: "À travers le monde, 23% des problèmes aux photocopieurs sont causés par des gens qui s'assoient sur l'appareil pour photocopier leur derrière.",
-  type: 'truefalse',
-  answer: true
+  content: "Quelle est l'allocution habituelle des situations désastreuses ?",
+  type: 'text',
+  answer: 'merde'
 }
 
 const q10 = {
   index: 9,
   h1: 'VRAI OU FAUX ?',
-  content: 'La plupart des rouges à lèvres contiennent des écailles de poisson.',
-  type: 'truefalse',
-  answer: true
+  content: "Quelle est la capitale de l'Australie",
+  type: 'text',
+  answer: 'canberra'
 }
 const q11 = {
   index: 10,
-  h1: 'VRAI OU FAUX ?',
-  content: "À l'origine, le Coca-Cola était vert.",
-  type: 'truefalse',
-  answer: true
+  h1: 'Trouve le jeu !',
+  content: m03,
+  type: 'blindtest',
+  answer: 'zelda'
 }
 
 const q12 = {
   index: 11,
-  h1: 'VRAI OU FAUX ?',
-  content: 'Le plus jeune Pape était âgé de 11 ans.',
-  type: 'truefalse',
-  answer: true
+  h1: 'Comment appelle-t-on...',
+  content: 'Comment appelle-t-on le petit du dromadaire',
+  type: 'text',
+  answer: 'dromelon'
 }
 
 const q13 = {
   index: 12,
-  h1: 'VRAI OU FAUX ?',
-  content: 'Les gilets pare-balles, les escaliers de secours, les essuie-glace, les imprimantes laser ont tous été inventés par des femmes.',
-  type: 'truefalse',
-  answer: true
+  h1: 'Comment appelle-t-on...',
+  content: "Comment appelle-t-on le petit de l'oiseau",
+  type: 'text',
+  answer: 'oisillon'
 }
 
 const q14 = {
   index: 13,
-  h1: 'VRAI OU FAUX ?',
-  content: 'G.O.L.F signifie Gentlemen Only, Ladies Forbidden.',
-  type: 'truefalse',
-  answer: true
+  h1: 'Comment appelle-t-on...',
+  content: 'Comment appelle-t-on le petit du Petic',
+  type: 'text',
+  answer: 'peticon'
 }
 const q15 = {
   index: 14,
-  h1: 'VRAI OU FAUX ?',
-  content: 'F.U.C.K. signifie Fornication Under Consent of King.',
-  type: 'truefalse',
-  answer: true
+  h1: 'Trouve le film !',
+  content: m04,
+  type: 'blindtest',
+  answer: 'et'
 }
 
 export const questions = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15]

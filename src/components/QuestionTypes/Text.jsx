@@ -43,6 +43,7 @@ const Text = ({ question, limit }) => {
       setProgress(newProgress)
       navigate('/gameover')
     } else {
+      setInput('')
       navigate(`/quizz/${idInt + 1}`)
     }
   }
