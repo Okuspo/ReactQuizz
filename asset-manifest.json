@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/ReactQuizz/static/css/main.201760b8.css",
-    "main.js": "/ReactQuizz/static/js/main.04aaf2bf.js",
+    "main.css": "/ReactQuizz/static/css/main.319c5201.css",
+    "main.js": "/ReactQuizz/static/js/main.948502e8.js",
     "static/media/audiotest.mp3": "/ReactQuizz/static/media/audiotest.9d78ba63278707d6d1d9.mp3",
     "static/media/wheel_3.svg": "/ReactQuizz/static/media/wheel_3.fa5d170463bf17574e76e209912b6738.svg",
     "static/media/wheel_icon.svg": "/ReactQuizz/static/media/wheel_icon.e522183160384ec2f190ebd4faeda219.svg",
@@ -10,11 +10,11 @@
     "static/media/lever.svg": "/ReactQuizz/static/media/lever.a96bcc03217adecbbda19a2b43678976.svg",
     "static/media/arrow_next.svg": "/ReactQuizz/static/media/arrow_next.4b0bd0ca5be2de11ddf6dc86504a8d1e.svg",
     "static/media/pin_3.svg": "/ReactQuizz/static/media/pin_3.b1e6a182026cd0b0f8b42247139f8f00.svg",
-    "main.201760b8.css.map": "/ReactQuizz/static/css/main.201760b8.css.map",
-    "main.04aaf2bf.js.map": "/ReactQuizz/static/js/main.04aaf2bf.js.map"
+    "main.319c5201.css.map": "/ReactQuizz/static/css/main.319c5201.css.map",
+    "main.948502e8.js.map": "/ReactQuizz/static/js/main.948502e8.js.map"
   },
   "entrypoints": [
-    "static/css/main.201760b8.css",
-    "static/js/main.04aaf2bf.js"
+    "static/css/main.319c5201.css",
+    "static/js/main.948502e8.js"
   ]
 }
