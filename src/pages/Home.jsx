@@ -2,9 +2,10 @@ import React, { useState, useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import WheelIcon from '../assets/wheel_icon.svg'
 import { AppContext } from '../App'
-import { decryptKeyCode, checkCodeIntegrity } from '../utils/saveUtils'
+import Utils, { decryptKeyCode } from '../utils'
 
 const Home = () => {
+  const utils = new Utils()
   const [input, setInput] = useState('')
   const [saveGameMessage, setSaveGameMessage] = useState([false, ''])
   const { progress, saveGame, setSaveGame, setCoins, setProgress } = useContext(AppContext)
@@ -13,7 +14,7 @@ const Home = () => {
     e.preventDefault()
     if (input.length < 2) return
     const save = decryptKeyCode(input)
-    if (!checkCodeIntegrity(save)) {
+    if (!utils.checkCodeIntegrity(save)) {
       setSaveGameMessage([false, 'Code invalide'])
     } else {
       setSaveGame(save.currentQuestion)
