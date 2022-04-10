@@ -1,13 +1,14 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { useParams } from 'react-router-dom'
+import { questions } from '../database/questions'
 import Pot from '../components/Pot'
 import BlindTest from '../components/QuestionTypes/BlindTest'
 import TrueFalse from '../components/QuestionTypes/TrueFalse'
 import Text from '../components/QuestionTypes/Text'
-import PropTypes from 'prop-types'
 import HomeButton from '../components/HomeButton'
-import { questions } from '../database/questions'
 import ProgressBar from '../components/ProgressBar'
+import SaveGame from '../components/SaveGame'
 
 const QuizzPage = ({ saveGame, setSaveGame, progress, setProgress, coins, setCoins }) => {
   QuizzPage.propTypes = {
@@ -60,6 +61,7 @@ const QuizzPage = ({ saveGame, setSaveGame, progress, setProgress, coins, setCoi
         setSaveGame={setSaveGame}
         /> }
         <ProgressBar progress={progress} setProgress={setProgress}/>
+        <SaveGame coins={coins} saveGame={saveGame} progress={progress}/>
       <HomeButton />
     </div>
   )

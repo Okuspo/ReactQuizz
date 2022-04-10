@@ -17,7 +17,8 @@ A personal project to learn React aside from my OpenClassroom courses.
 - How to manage states and pass them as props from higher level components
 - How to handle game progress and navigation
 - How to rig a prize wheel :sweat_smile:
-- React PropTypes
+- React PropTypes  
+
 [Figma mockup](https://www.figma.com/file/SJ3jC8qHcfdh6ZyqmhzBRD/MegaQuizz?node-id=13%3A2)
 
 ## What I would like to do next

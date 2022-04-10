@@ -67,6 +67,25 @@
   transition: transform .25s ease-in-out;
 }
 
+.btn-save {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: a.$dyellow;
+  font-size: 20px;
+  padding: 5px 5px;
+}
+
+.save-key {
+  position: absolute;
+  bottom: 20px;
+  font-size: 20px;
+  font-family: 'Titan One', sans-serif;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 @keyframes sideBounce {
   0% {
     transform: translateX(0px);

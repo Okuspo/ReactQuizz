@@ -20,7 +20,6 @@ const TrueFalse = ({ saveGame, setSaveGame, progress, setProgress, question, coi
   const questionSolved = saveGame > idInt
 
   function handleClick (e) {
-    console.log(saveGame)
     if (questionSolved) return
     setSaveGame(idInt + 1)
     let answer, addedCoin

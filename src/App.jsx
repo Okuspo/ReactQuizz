@@ -21,7 +21,7 @@ function App () {
     <div className="app">
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Home saveGame={saveGame}/>}/>
+          <Route path='/' element={<Home saveGame={saveGame} setSaveGame={setSaveGame} setCoins={setCoins} setProgress={setProgress} progress={progress}/>}/>
           <Route path='/quizz/:id' element={<QuizzPage progress={progress} setProgress={setProgress} coins={coins} setCoins={setCoins} saveGame={saveGame} setSaveGame={setSaveGame}/>} />
           <Route path='/prizewheel' element={<PrizeWheel coins={coins} setCoins={setCoins} jackpotWon={jackpotWon} setJackpotWon={setJackpotWon} />} />
           <Route path='*' element={<NotFound />} />
