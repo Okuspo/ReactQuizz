@@ -1,6 +1,7 @@
-# React Quizz
+# React Quizz : version using React Context
 
 A personal project to learn React aside from my OpenClassroom courses.
+
 
 ## I made 3 types of questions
 
@@ -29,7 +30,6 @@ A personal project to learn React aside from my OpenClassroom courses.
 - Add more music/text questions
 - Learn drag and drop to pull the prize wheel lever and insert coin (for desktop and/or touch)
 - Create new types of questions : mini games (with drag and drop too), or picture/video questions
-- Learn useContext() hook
 - Add sounds
 - Add CSS animations on buttons from event types I'm not familiar with (onMouseDown / onMouseUp)
 - Rebuild it in TypeScript when JS version will be good enough
