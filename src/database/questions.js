@@ -29,7 +29,7 @@ const q3 = {
 
 const q4 = {
   index: 3,
-  h1: 'Tape  la réponse',
+  h1: 'Trouve la capitale',
   content: 'Quelle est la capitale de fRance ?',
   type: 'text',
   answer: 'r'
@@ -37,10 +37,10 @@ const q4 = {
 
 const q5 = {
   index: 4,
-  h1: 'VRAI OU FAUX ?',
-  content: 'Ami en elfe se dit Mellon',
-  type: 'truefalse',
-  answer: true
+  h1: 'PARLEZ AMI',
+  content: "Comment dit-on 'ami' en elfe ?",
+  type: 'text',
+  answer: 'mellon'
 }
 
 const q6 = {
@@ -54,22 +54,22 @@ const q6 = {
 const q7 = {
   index: 6,
   h1: 'VRAI OU FAUX ?',
-  content: "Le briquet a été inventé avant l'allumette.",
+  content: "Père castor est un animal lecteur. Peut-on en déduire qu'il est cannibale ?",
   type: 'truefalse',
-  answer: true
+  answer: false
 }
 
 const q8 = {
   index: 7,
   h1: 'VRAI OU FAUX ?',
-  content: "On peut prononcer le mot 'Gzorglub' ",
+  content: 'Cendrillon avait des pantoufles de vair',
   type: 'truefalse',
   answer: true
 }
 
 const q9 = {
   index: 8,
-  h1: 'VRAI OU FAUX ?',
+  h1: 'Barbares et Nains',
   content: "Quelle est l'allocution habituelle des situations désastreuses ?",
   type: 'text',
   answer: 'merde'
@@ -77,10 +77,10 @@ const q9 = {
 
 const q10 = {
   index: 9,
-  h1: 'VRAI OU FAUX ?',
-  content: "Quelle est la capitale de l'Australie",
+  h1: 'Le mot de la fin !',
+  content: "Mais qu'est-ce que c'est que cette matière ? C'est de la merde ?! Non c'est...",
   type: 'text',
-  answer: 'canberra'
+  answer: 'kloug'
 }
 const q11 = {
   index: 10,
@@ -92,7 +92,7 @@ const q11 = {
 
 const q12 = {
   index: 11,
-  h1: 'Comment appelle-t-on...',
+  h1: 'Les chiens ne font pas des chats',
   content: 'Comment appelle-t-on le petit du dromadaire',
   type: 'text',
   answer: 'dromelon'
@@ -100,7 +100,7 @@ const q12 = {
 
 const q13 = {
   index: 12,
-  h1: 'Comment appelle-t-on...',
+  h1: 'Les chiens ne font pas des chats',
   content: "Comment appelle-t-on le petit de l'oiseau",
   type: 'text',
   answer: 'oisillon'
@@ -108,7 +108,7 @@ const q13 = {
 
 const q14 = {
   index: 13,
-  h1: 'Comment appelle-t-on...',
+  h1: 'Les chiens ne font pas des chats',
   content: 'Comment appelle-t-on le petit du Petic',
   type: 'text',
   answer: 'peticon'
