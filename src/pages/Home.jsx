@@ -67,8 +67,8 @@ const Home = ({ saveGame, setSaveGame, progress, setProgress, setCoins }) => {
       </NavLink>
     </div>
     <form className="resume-game" onSubmit={handleSubmit}>
-      <span>Code de sauvegarde ?</span>
-      <input className='saveKey-input' type='text' value={input} onInput={e => setInput(e.target.value)}></input>
+
+      <input className='saveKey-input' placeholder='Code de sauvegarde ?' type='text' value={input} onInput={e => setInput(e.target.value)}></input>
       <span className='input-error'>{errorMessage}</span>
     </form>
   </div>
