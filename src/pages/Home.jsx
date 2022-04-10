@@ -5,7 +5,7 @@ import WheelIcon from '../assets/wheel_icon.svg'
 
 const Home = ({ saveGame, setSaveGame, progress, setProgress, setCoins }) => {
   const [input, setInput] = useState('')
-  const [errorMessage, setErrorMessage] = useState('')
+  const [saveGameMessage, setSaveGameMessage] = useState([false, ''])
   Home.propTypes = {
     saveGame: PropTypes.number,
     setSaveGame: PropTypes.func,
@@ -31,9 +31,10 @@ const Home = ({ saveGame, setSaveGame, progress, setProgress, setCoins }) => {
     if (input.length < 2) return
     const saveGame = decryptKeyCode(input)
     if (!checkCodeIntegrity(saveGame)) {
-      setErrorMessage('Code invalide')
+      setSaveGameMessage([false, 'Code invalide !'])
     } else {
       setSaveGame(saveGame.currentQuestion)
+      setSaveGameMessage([true, 'Code validé !'])
       setCoins(saveGame.coins)
       const newProgress = progress
       newProgress.answers = saveGame.answers
@@ -65,7 +66,7 @@ const Home = ({ saveGame, setSaveGame, progress, setProgress, setCoins }) => {
       </div>
       <form className="resume-game" onSubmit={handleSubmit}>
         <input className='saveKey-input' placeholder='Code de sauvegarde ?' type='text' value={input} onInput={e => setInput(e.target.value)}></input>
-        <span className='input-error'>{errorMessage}</span>
+        <span className={`savegame-message-${saveGameMessage[0]}`}>{saveGameMessage[1]}</span>
       </form>
     </div>
   )
