@@ -14,7 +14,7 @@ const q1 = {
 const q2 = {
   index: 1,
   h1: 'VRAI OU FAUX ?',
-  content: 'Quelle est la différence entre un pigeon',
+  content: 'Quelle est la différence entre un pigeon ?',
   type: 'truefalse',
   answer: true
 }
@@ -29,18 +29,18 @@ const q3 = {
 
 const q4 = {
   index: 3,
-  h1: 'Trouve la capitale',
-  content: 'Quelle est la capitale de fRance ?',
+  h1: 'Le mot de passe',
+  content: 'Gloubi',
   type: 'text',
-  answer: 'r'
+  answer: 'boulga'
 }
 
 const q5 = {
   index: 4,
-  h1: 'PARLEZ AMI',
-  content: "Comment dit-on 'ami' en elfe ?",
+  h1: 'Le mot de la fin',
+  content: 'Oh excuse me, am I stepping on your...',
   type: 'text',
-  answer: 'mellon'
+  answer: 'toes'
 }
 
 const q6 = {
@@ -62,17 +62,17 @@ const q7 = {
 const q8 = {
   index: 7,
   h1: 'VRAI OU FAUX ?',
-  content: 'Cendrillon avait des pantoufles de vair',
+  content: "Le Kiri c'est bien ",
   type: 'truefalse',
-  answer: true
+  answer: false
 }
 
 const q9 = {
   index: 8,
-  h1: 'Barbares et Nains',
-  content: "Quelle est l'allocution habituelle des situations désastreuses ?",
+  h1: 'Crevette revisitée',
+  content: "Comment s'appelle une crevette revisitée ?",
   type: 'text',
-  answer: 'merde'
+  answer: 'jambalaya'
 }
 
 const q10 = {
